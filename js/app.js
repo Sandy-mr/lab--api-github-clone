@@ -1,5 +1,5 @@
 var request = superagent;
-const API_KEY = '4a061e88eb6d3440e23d8fe18792d495a0af0854';
+const API_KEY = 'af441320d4d71f8536b135051472ad081275b325';
 const URL_USER = 'https://api.github.com/users/';
 const TOKEN = '?access_token=';
 const URL_REPOS = '/repos'+TOKEN+API_KEY;
@@ -48,6 +48,7 @@ function printDefaultRepo(response){
 }
 getDefaultUser()
   .then(printDefaultUser);
+
 getDefaultRepo().
   then(printDefaultRepo);
 
