@@ -1,7 +1,6 @@
 var request = superagent;
-const API_KEY = '5dad69a1643303d753a14eb1b9e3a146a8b78c28';
 const URL_USER = 'https://api.github.com/users/';
-const TOKEN = '?access_token=5dad69a1643303d753a14eb1b9e3a146a8b78c28';
+const TOKEN = '?access_token=40b396afd260453b55cb58fefc5181f4c911ce7a';
 const URL_REPOS = '/repos'+TOKEN;
 
 var user = document.querySelector('.user-name');
@@ -64,7 +63,7 @@ var user = "";
     request.get(url).then(function(response){
     			console.log(response.body);
           console.log(response.body.name);
-    			user.textContent = response.body.name
+    			name.textContent = response.body.name
     			imageAvatar.src = response.body.avatar_url
     			nickname.textContent = response.body.login
     			company.textContent = response.body.company
