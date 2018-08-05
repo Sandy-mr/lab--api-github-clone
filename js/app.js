@@ -1,10 +1,10 @@
 var request = superagent;
-const API_KEY = 'af441320d4d71f8536b135051472ad081275b325';
+const API_KEY = '5dad69a1643303d753a14eb1b9e3a146a8b78c28';
 const URL_USER = 'https://api.github.com/users/';
-const TOKEN = '?access_token=';
-const URL_REPOS = '/repos'+TOKEN+API_KEY;
+const TOKEN = '?access_token=5dad69a1643303d753a14eb1b9e3a146a8b78c28';
+const URL_REPOS = '/repos'+TOKEN;
 
-var name = document.querySelector('.user-name');
+var user = document.querySelector('.user-name');
 var nickname = document.querySelector('.user-nickName');
 var imageAvatar = document.querySelector('.avatar');
 var company = document.querySelector('.company');
@@ -15,15 +15,16 @@ var description = document.querySelector('.repositories-description');
 var input = document.querySelector('.search');
 
 default_user = 'matthiasak';
-var initial_usuer = URL_USER+default_user+TOKEN+API_KEY;
+var initial_usuer = URL_USER+default_user+TOKEN;
 var default_repo = URL_USER+default_user+URL_REPOS;
 
 function getDefaultUser() {
   return request.get(initial_usuer);
 }
 function printDefaultUser(response){
-  default_user = response.body
-  name.textContent = default_user.name;
+  default_user = response.body;
+  console.log(default_user.name);
+  user.textContent = default_user.name;
   imageAvatar.src = default_user.avatar_url;
   nickname.textContent = default_user.login;
   company.textContent = default_user.company;
@@ -56,13 +57,14 @@ input.addEventListener("keypress", function(event){
 var user = "";
   if(event.keyCode == 13){
     user = input.value;
-    var url = URL_USER+user+TOKEN+API_KEY;
+    var url = URL_USER+user+TOKEN;
     var repositories = URL_USER+user+URL_REPOS;
     console.log(url)
     console.log(repositories);
     request.get(url).then(function(response){
     			console.log(response.body);
-    			name.textContent = response.body.name
+          console.log(response.body.name);
+    			user.textContent = response.body.name
     			imageAvatar.src = response.body.avatar_url
     			nickname.textContent = response.body.login
     			company.textContent = response.body.company
