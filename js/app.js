@@ -53,17 +53,17 @@ getDefaultRepo().
   then(printDefaultRepo);
 
 input.addEventListener("keypress", function(event){
-var user = "";
+var user_input = "";
   if(event.keyCode == 13){
-    user = input.value;
-    var url = URL_USER+user+TOKEN;
-    var repositories = URL_USER+user+URL_REPOS;
+    user_input = input.value;
+    var url = URL_USER+user_input+TOKEN;
+    var repositories = URL_USER+user_input+URL_REPOS;
     console.log(url)
     console.log(repositories);
     request.get(url).then(function(response){
     			console.log(response.body);
           console.log(response.body.name);
-    			name.textContent = response.body.name
+    			user.textContent = response.body.name;
     			imageAvatar.src = response.body.avatar_url
     			nickname.textContent = response.body.login
     			company.textContent = response.body.company
