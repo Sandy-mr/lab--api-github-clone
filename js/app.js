@@ -1,6 +1,6 @@
 var request = superagent;
 const URL_USER = 'https://api.github.com/users/';
-const TOKEN = '?access_token=4ef973459ec0bda376e789a8e52bd0eafef34762';
+const TOKEN = '?access_token=2e5387afa2891ca68af8c894893d13538c6c696d';
 const URL_REPOS = '/repos'+TOKEN;
 
 var user = document.querySelector('.user-name');
